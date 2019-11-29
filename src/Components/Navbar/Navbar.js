@@ -18,9 +18,12 @@ const Navbar = () => {
                 <li>
                     <NavLink to="/music" activeClassName={cl.active}>Music</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/users" activeClassName={cl.active}>Users</NavLink>
+                </li>
             </ul>
         </nav>
     )
-}
+};
 
 export default Navbar;

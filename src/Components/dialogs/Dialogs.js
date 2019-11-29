@@ -4,7 +4,6 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-    debugger;
     let mappedDialogs = props.dialogsPage.dialogsList.map((d) => <Dialog name={d.name} id={d.id}/>);
     let mappedMessages = props.dialogsPage.messageList.map(m => <Message id = {m.id} messageText = {m.text} />);
     let sendMessage = () =>{

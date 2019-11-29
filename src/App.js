@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/header/Header';
-import Navbar from './Components/navbar/Navbar';
+import Header from './Components/Header/Header';
+import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/profile/Profile';
-import Dialogs from "./Components/dialogs/Dialogs";
 import {BrowserRouter} from "react-router-dom";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./Components/dialogs/DialogsContainer";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 function App(props) {
     return (
@@ -17,7 +17,7 @@ function App(props) {
                 <div className="app-wrapper-content">
                     <Route path="/dialogs" render={() => <DialogsContainer/>}/>
                     <Route path='/profile' render={() => <Profile/>}/>
-                    <Route path='/users' render={() => <div>Users</div>}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
                 </div>
             </div>
         </BrowserRouter>
