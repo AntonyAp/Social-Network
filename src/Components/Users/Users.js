@@ -1,37 +1,54 @@
 import React from 'react';
-import  * as axios from "axios";
+import css from './Users.module.css';
+import {NavLink} from "react-router-dom";
+import {usersApi} from "../../Api/Api";
 
-
-class Users extends React.Component{
-    componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(
-            response =>
-                this.props.setUsers(response.data.items)
-        )
+let Users = (props) => {
+    let pagesCount = Math.ceil(props.usersCount / props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
     }
-
-    render() {
-
-        return <div>
-            <div>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-            </div>
+    return <div>
+        <div>
             {
-            this.props.users.map(u => <div key={u.id}>
+                pages.map(page => {
+                    return <span onClick={() => props.onPageChanged(page)}
+                                 className={props.currentPage === page && css.selectedPage}>{page}</span>;
+                })
+            }
+        </div>
+        {
+            props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                       <img src = {u.photos.small != null ? u.photos.small : 'http://nbl.by/media/bearleague/bl15738316422784.jpg'}/>
+                         <NavLink to={"/profile/" + u.id}>
+                       <img
+                           src={u.photos.small != null ? u.photos.small : 'http://nbl.by/media/bearleague/bl15738316422784.jpg'}/>
+                         </NavLink>
                     </div>
                     <div>
-                       {u.followed ? <button onClick = {() => this.props.unfollow(u.id)} >Unfollow</button>
-                           : <button onClick = {() => this.props.follow(u.id)}>Follow</button>}
+                       {u.followed ? <button onClick={() => {
+                             usersApi.unfollow(u.id).then(
+                                   data => {
+                                       if(data.resultCode === 0){
+                                           props.unfollow(u.id)
+                                       }
+
+                                   })
+                           }}>Unfollow</button>
+                           : <button onClick={() => {
+                              usersApi.follow(u.id).then(
+                                   data => {
+                                       if(data.resultCode === 0){
+                                           props.follow(u.id)
+                                       }
+
+                                   })
+                           }}>Follow</button>}
                     </div>
                 </span>
-            <span>
+                <span>
                 <span>
                     <div>{u.name}</div>
                     <div>{u.status}</div>
@@ -41,10 +58,8 @@ class Users extends React.Component{
                     <div>{/*u.location.country*/}</div>
                 </span>
             </span>
-        </div>)
+            </div>)
         }
-        </div>
-    }
+    </div>
 }
-
 export default Users;

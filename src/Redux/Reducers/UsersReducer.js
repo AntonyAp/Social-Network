@@ -1,22 +1,16 @@
 const FOLLOW = "FOLLOW ";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_USERS_COUNT = "SET_USERS_COUNT";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
-    usersList: [
-      /*  {id: 1, photoUrl: 'http://nbl.by/media/bearleague/bl15724310211575.jpg',
-            followed : false, fullName: "Anton Apanovich", status: "I am learning React", location : {country: 'Belarus', city : 'Minsk'}},
-        {id: 7, photoUrl: 'http://nbl.by/media/bearleague/bl14407514771537.jpg',
-            followed : false, fullName: "Oleg Kupriyanov", status: "Люблю считать определитель 3*3", location : {country: 'Belarus', city : 'Vitebsk'}},
-        {id: 2, photoUrl: 'http://nbl.by/media/bearleague/bl15724310032523.jpg',
-            followed : false, fullName: "Vasily Apanovich", status: "I am .NET developer", location : {country: 'Belarus', city : 'Minsk'}},
-        {id: 3, photoUrl: 'http://nbl.by/media/bearleague/bl15723683821906.jpg',
-            followed : true, fullName: "Valery Pukhalski", status: "I React developer", location : {country: 'Belarus', city : 'Minsk'}},
-        {id: 4, photoUrl: 'http://nbl.by/media/bearleague/bl15738316422784.jpg',
-            followed : false, fullName: "Alex Korbut", status: "I am learning Angular developer", location : {country: 'Belarus', city : 'Minsk'}},
-        {id: 5, photoUrl: 'http://nbl.by/media/bearleague/bl1573831490552.jpg',
-            followed : true, fullName: "Andrei Kostiv", status: "I am full-stack developer", location : {country: 'Belarus', city : 'Minsk'}},*/
-    ],
+    usersList: [],
+    pageSize : 4,
+    usersCount : 0,
+    currentPage : 1,
+    isFetching : false
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -44,31 +38,73 @@ const usersReducer = (state = initialState, action) => {
             }
         }
         case SET_USERS : {
+            debugger;
             return {
                 ...state,
-                usersList: [...state.usersList, ...action.users]
+                usersList:  [...action.users]
             }
         }
+        case    SET_CURRENT_PAGE : {
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
+        }
+        case SET_USERS_COUNT : {
+            return {
+                ...state,
+                usersCount: action.usersCount
+            }
+        }
+
+        case TOGGLE_IS_FETCHING : {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
+
         default : return state;
     }
 };
 
-export const followActionCreator = (userId) =>{
+export const follow = (userId) =>{
     return {
         type : FOLLOW,
         userId : userId
     }
 };
-export const unfollowActionCreator = (userId) =>{
+export const unfollow = (userId) =>{
     return {
         type : UNFOLLOW,
         userId : userId
     }
 };
-export const setUsersActionCreator = (users) =>{
+export const setUsers = (users) =>{
+    debugger;
     return {
         type : SET_USERS,
         users : users
+    }
+};
+
+export const setCurrentPage = (currentPage) =>{
+    return {
+        type : SET_CURRENT_PAGE,
+        currentPage: currentPage
+    }
+};
+export const setUsersCount = (usersCount) =>{
+    return {
+        type : SET_USERS_COUNT,
+        usersCount : usersCount
+    }
+};
+
+export const toggleIsFetching = (isFetching) =>{
+    return {
+        type : TOGGLE_IS_FETCHING,
+        isFetching : !isFetching
     }
 };
 export default usersReducer;

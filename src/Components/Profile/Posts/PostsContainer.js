@@ -1,14 +1,11 @@
 import React from "react";
-import cl from './Posts.module.css';
-import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/Reducers/PostsReducer";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/Reducers/ProfileReducer";
 import Posts from "./Posts";
-import StoreContext from "../../../StoreContext";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) =>{
     return {
-        postsList : state.postsPage.postsList,
+        postsList : state.profilePage.postsList,
         newPostText : state.newPostText
     }
 };
