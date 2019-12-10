@@ -2,6 +2,7 @@ import React from 'react';
 import css from './Users.module.css';
 import {NavLink} from "react-router-dom";
 import {usersApi} from "../../Api/Api";
+import {toggleIsFollowingInProgress} from "../../Redux/Reducers/UsersReducer";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.usersCount / props.pageSize);
@@ -28,22 +29,24 @@ let Users = (props) => {
                          </NavLink>
                     </div>
                     <div>
-                       {u.followed ? <button onClick={() => {
-                             usersApi.unfollow(u.id).then(
+                       {u.followed ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                               props.toggleIsFollowingInProgress(true, u.id);
+                               usersApi.unfollow(u.id).then(
                                    data => {
-                                       if(data.resultCode === 0){
+                                       if (data.resultCode === 0) {
                                            props.unfollow(u.id)
                                        }
-
+                                       props.toggleIsFollowingInProgress(false, u.id);
                                    })
                            }}>Unfollow</button>
-                           : <button onClick={() => {
-                              usersApi.follow(u.id).then(
+                           : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                               props.toggleIsFollowingInProgress(true, u.id);
+                               usersApi.follow(u.id).then(
                                    data => {
-                                       if(data.resultCode === 0){
+                                       if (data.resultCode === 0) {
                                            props.follow(u.id)
                                        }
-
+                                       props.toggleIsFollowingInProgress(false, u.id);
                                    })
                            }}>Follow</button>}
                     </div>
