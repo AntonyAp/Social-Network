@@ -32,6 +32,11 @@ export const usersApi = {
             .then(response =>
                 response.data
             )
+    },
+    getProfile(userId){
+        return axiosInstance.get(`profile/${userId}`)
+            .then(response =>
+            response.data)
     }
 }
 

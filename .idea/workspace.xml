@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67490c05-1452-48b1-9ea0-b0cea23f3621" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Login/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/UsersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/UsersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/AuthReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/AuthReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/ProfileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/ProfileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
