@@ -29,7 +29,7 @@ export const setAuthUserData = (data) =>{
     }
 };
 
-export const getAuthInfo = (userId) =>{
+export const getAuthInfo = () =>{
     return (dispatch) =>{
         authApi.getAuthInfo().then(
             data => {
