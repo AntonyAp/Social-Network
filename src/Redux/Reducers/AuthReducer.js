@@ -1,5 +1,4 @@
-import {usersApi} from "../../Api/Api";
-import {setUserProfile} from "./ProfileReducer";
+import {authApi} from "../../Api/Api";
 
 const SET_USER_DATA = "SET_USER_DATA";
 
@@ -32,7 +31,7 @@ export const setAuthUserData = (data) =>{
 
 export const getAuthInfo = (userId) =>{
     return (dispatch) =>{
-        usersApi.getAuthInfo().then(
+        authApi.getAuthInfo().then(
             data => {
                 if(data.resultCode === 0){
                     dispatch(setAuthUserData(data.data));

@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
             {/*<img className={cl.img} src="http://ushki-ruchki.ru/uploads/images/s/a/s/sasha_gray_sweet_game.jpg"/>*/}
             <div>
                 <img src={props.profile.photos.small}/>
-                <ProfileStatus status={"hello"} />
+                <ProfileStatus {...props} />
                 <div>{props.profile.aboutMe}</div>
             </div>
         </div>

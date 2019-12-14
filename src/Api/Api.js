@@ -26,19 +26,34 @@ export const usersApi = {
             .then(response =>
                 response.data
             )
+    }
+};
+
+export const profileApi = {
+    getProfile(userId){
+        return axiosInstance.get(`profile/${userId}`)
+            .then(response =>
+                response.data)
     },
+    getStatus(userId){
+        return axiosInstance.get(`profile/status/${userId}`)
+            .then(response =>
+                response.data)
+    },
+    updateStatus(status){
+        return axiosInstance.put(`profile/status`, { status }).then(response =>
+            response.data);
+    }
+};
+
+export const authApi = {
     getAuthInfo(){
         return axiosInstance.get(`auth/me`)
             .then(response =>
                 response.data
             )
-    },
-    getProfile(userId){
-        return axiosInstance.get(`profile/${userId}`)
-            .then(response =>
-            response.data)
     }
-}
+};
 
 
 
