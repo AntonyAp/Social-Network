@@ -1,44 +1,17 @@
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import dialogsReducer from "./Reducers/DialogsReducer";
-import postsReducer from "./Reducers/ProfileReducer";
+import profileReducer from "./Reducers/ProfileReducer";
+import usersReducer from "./Reducers/UsersReducer";
+import authReducer from "./Reducers/AuthReducer";
+import  thunkMiddleware from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
 
-let store =  {
-    _state :  {
-        dialogsPage : {
-            messageList: [
-                {id: 1, text: "Hello friend"},
-                {id: 2, text: "Hello"},
-                {id: 3, text: "Скинь лабы"}
-            ],
-            dialogsList: [
-                {id: 1, name: "Anton"},
-                {id: 2, name: "Valera"},
-                {id: 3, name: "Sanya"}
-            ],
-            newMessageText : ""
-        },
-        postsPage : {
-            postsList: [
-                {id: 1, text: "Hello"},
-                {id: 2, text: "Bye"},
-                {id: 3, text: "What a nice day"}
-            ],
-            newPostText : "Nbl.by"
-        }
-    },
-    getState(){
-        return this._state;
-    },
-    callSubscriber(state)  {
-        console.log("store Changed");
-    },
-    dispatch(action){
-        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-        this._state.postsPage = postsReducer(this._state.postsPage, action);
-        this.callSubscriber(this._state);
-    },
-    subscribe(observer) {
-        this.callSubscriber = observer;
-    }
-
-};
+const reducers = combineReducers({
+    dialogsPage: dialogsReducer,
+    profilePage: profileReducer,
+    usersPage : usersReducer,
+    auth : authReducer,
+    form : formReducer
+});
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 export default store;
