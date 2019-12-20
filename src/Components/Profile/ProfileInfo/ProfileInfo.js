@@ -9,7 +9,6 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            {/*<img className={cl.img} src="http://ushki-ruchki.ru/uploads/images/s/a/s/sasha_gray_sweet_game.jpg"/>*/}
             <div>
                 <img src={props.profile.photos.small}/>
                 <ProfileStatus {...props} />

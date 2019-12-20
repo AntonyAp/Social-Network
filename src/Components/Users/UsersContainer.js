@@ -60,5 +60,4 @@ export default compose(
         toggleIsFollowingInProgress,
         getUsers
     }),
-    withAuthRedirect
 )(UsersContainer)
