@@ -3,7 +3,7 @@ import cl from './Posts.module.css';
 import Post from "./Post/Post";
 import AddPostForm from "./Post/AddPostForm";
 
-const Posts = (props) => {
+const Posts = React.memo((props) => {
     let mappedPosts = props.postsList.map(post => <Post id = {post.id} message = {post.text}/>);
 
      let addPost = (formData) => {
@@ -16,6 +16,6 @@ const Posts = (props) => {
             {mappedPosts}
         </div>
     </div>
-};
+});
 
 export default Posts;
