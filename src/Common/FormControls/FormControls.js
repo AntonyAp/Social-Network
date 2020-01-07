@@ -12,7 +12,7 @@ export const FormControl = ({input, meta, ...props}) => {
             {hasError && <span>{meta.error}</span>}
         </div>
     </div>
-}
+};
 export const Textarea = (props) => {
     let {input, meta, ...restProps} = props;
     return <FormControl {...props}><textarea {...input} {...restProps}/></FormControl>
@@ -21,4 +21,4 @@ export const Textarea = (props) => {
 export const Input = (props) => {
     let {input, meta, ...restProps} = props;
     return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
-}
+};

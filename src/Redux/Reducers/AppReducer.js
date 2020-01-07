@@ -3,7 +3,7 @@ import {getAuthInfo} from "./AuthReducer";
 const INITIALIZE = "INITIALIZE";
 
 let initialState = {
-    initialized : false
+    initialized: false
 };
 
 const appReducer = (state = initialState, action) => {
@@ -14,25 +14,24 @@ const appReducer = (state = initialState, action) => {
                 initialized: true
             };
         }
-        default : return state;
+        default :
+            return state;
     }
 };
-export const appInitialized = () =>{
+export const appInitialized = () => {
     return {
-        type : INITIALIZE,
+        type: INITIALIZE,
     }
 };
 
-export const initializeApp = () =>{
-    return (dispatch) =>{
-        let authInfo = dispatch(getAuthInfo());
+export const initializeApp = () => (dispatch) => {
+    let authInfo = dispatch(getAuthInfo());
 
-        Promise.all([authInfo]).then(
-            () =>{
-                dispatch(appInitialized());
-            }
-        );
-    }
+    Promise.all([authInfo]).then(
+        () => {
+            dispatch(appInitialized());
+        }
+    );
 };
 
 export default appReducer;

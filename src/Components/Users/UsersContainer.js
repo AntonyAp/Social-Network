@@ -8,7 +8,6 @@ import {
 } from "../../Redux/Reducers/UsersReducer";
 import Users from "./Users";
 import Preloader from "../../Common/Preloader/Preloader";
-import {withAuthRedirect} from "../../Hocs/WithAuthRedirect";
 import {compose} from "redux";
 
 
